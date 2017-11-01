@@ -69,6 +69,7 @@ namespace Helper
         /// <param name="v">It's Vector of symbol</param>
         /// <param name="ch">It's Character of symbol</param>
         /// <param name="c">It's Color of symbol</param>
+        /// <param name="bgC">It's BackGroung Color of symbol</param>
         public Point(Vector2 v, char ch, ConsoleColor c = ConsoleColor.White, ConsoleColor bgC = ConsoleColor.Black)
         {
             objVector = v;
@@ -84,6 +85,7 @@ namespace Helper
         /// <param name="b">It's Y of symbol</param>
         /// <param name="ch">It's Character of symbol</param>
         /// <param name="c">It's Color of symbol</param>
+        /// <param name="bgC">It's BackGroung Color of symbol</param>
         public Point(int a, int b, char ch, ConsoleColor c = ConsoleColor.White, ConsoleColor bgC = ConsoleColor.Black)
         {
             objVector = new Vector2(a, b);
