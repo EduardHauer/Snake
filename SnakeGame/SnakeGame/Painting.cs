@@ -55,6 +55,47 @@ namespace Helper
             return c;
         }
         #endregion
+
+        public static Point[,] GetScene(Point[,] p, char[,] map, params Point[] other)
+        {
+            int height = map.GetLength(0);
+            int lenght = map.GetLength(1);
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < lenght; j++)
+                {
+                    if (p[i, j] != null)
+                    {
+                        p[i, j].objChar = map[i, j];
+                        p[i, j].objVector.x = j;
+                        p[i, j].objVector.y = i;
+                    }
+                    else
+                    {
+                        p[i, j] = new Point(j, i, ' ');
+                        p[i, j].objChar = map[i, j];
+                    }
+                }
+            }
+            for (int l = 0; l < other.Length; l++)
+            {
+                p[other[l].objVector.x, other[l].objVector.y].objChar = other[l].objChar;
+            }
+            return p;
+        }
+        public static void DrawScene(Point[,] p)
+        {
+            for (int i = 0; i < p.GetLength(0); i++)
+            {
+                for (int j = 0; j < p.GetLength(1); j++)
+                {
+                    Console.Write("");
+                    p[i, j].Draw();
+                }
+                Console.WriteLine("");
+            }
+            Console.WriteLine("");
+        }
     }
     class Point
     {
@@ -97,9 +138,9 @@ namespace Helper
         /// <summary>
         /// Paint your point
         /// </summary>
-        public void Paint()
+        public void Draw()
         {
-            Console.SetCursorPosition(objVector.x, objVector.y);
+            Console.SetCursorPosition(objVector.x * 2, objVector.y);
             Console.BackgroundColor = backgroundColor;
             Console.ForegroundColor = objColor;
             Console.Write(objChar);
