@@ -10,20 +10,9 @@ namespace SnakeGame
     {
         static void Main(string[] args)
         {
-            char[,] m = new char[,]
-            {
-                { ' ', '#', '#', '#', ' '},
-                { '#', ' ', '|', ' ', '#'},
-                { '#', '-', ' ', '-', '#'},
-                { '#', ' ', '|', ' ', '#'},
-                { ' ', '#', '#', '#', ' '}
-            };
+            Point p = new Point(0, 0, 'E', ConsoleColor.Blue, ConsoleColor.DarkGray);
+            p.Paint();
 
-            Point[,] p = new Point[m.GetLength(0), m.GetLength(1)];
-
-            p = Vector2.GetScene(p, m, new Point(2, 2, 'H'));
-
-            Vector2.DrawScene(p);
             Console.ReadLine();
         }
     }
