@@ -126,6 +126,11 @@ namespace Helper
         /// <param name="_bgC">It's BackGroung Color of symbol</param>
         public Point(Vector2 _v, char _ch, ConsoleColor _c = ConsoleColor.White, ConsoleColor _bgC = ConsoleColor.Black) : base (_ch, _c, _bgC) { v = _v; }
 
+        public Point(Point p) : base(p.ch, p.c, p.bgC)
+        {
+            v = p.v;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -146,6 +151,25 @@ namespace Helper
             Console.ForegroundColor = c;
             Console.Write(ch);
             Console.ResetColor();
+        }
+
+        public void Move(int val, Direction dir)
+        {
+            switch(dir)
+            {
+                case Direction.up:
+                    v.y += val;
+                    break;
+                case Direction.down:
+                    v.y -= val;
+                    break;
+                case Direction.right:
+                    v.x += val;
+                    break;
+                case Direction.left:
+                    v.x -= val;
+                    break;
+            }
         }
     }
 

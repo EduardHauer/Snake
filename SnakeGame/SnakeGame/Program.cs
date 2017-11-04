@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Helper;
+using SnakeHelper;
 
 namespace SnakeGame
 {
@@ -16,6 +17,9 @@ namespace SnakeGame
 
             Rectangle r = new Rectangle(39, 24, '#');
             r.Draw();
+
+            Snake s = new Snake(new Vector2(20, 12), Direction.left, 6, '-');
+            s.Draw();
 
             Console.ReadLine();
         }
